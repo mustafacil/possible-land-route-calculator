@@ -1,19 +1,20 @@
 package com.calculator.possiblelandroutecalculator.model;
 
 import java.util.List;
+import java.util.Set;
 
 public class Country {
 
     private String cca3;
-    private List<String> borderList;
+    private Set<String> borderSet;
     private boolean wasVisited;
 
     public Country() {
     }
 
-    public Country(String cca3, List<String> borderList, boolean wasVisited) {
+    public Country(String cca3, Set<String> borderSet, boolean wasVisited) {
         this.cca3 = cca3;
-        this.borderList = borderList;
+        this.borderSet = borderSet;
         this.wasVisited = wasVisited;
     }
 
@@ -25,12 +26,12 @@ public class Country {
         this.cca3 = cca3;
     }
 
-    public List<String> getBorderList() {
-        return borderList;
+    public Set<String> getBorderSet() {
+        return borderSet;
     }
 
-    public void setBorderList(List<String> borderList) {
-        this.borderList = borderList;
+    public void setBorderSet(Set<String> borderSet) {
+        this.borderSet = borderSet;
     }
 
     public boolean isWasVisited() {

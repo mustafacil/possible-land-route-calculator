@@ -32,20 +32,18 @@ public class CountryGraph {
 
     public void createAdjacentMatrixFromCountryList() {
 
-
         Map<String, Integer> map = getCountryMap();
 
         for (int i = 0; i < countryList.size(); i++) {
 
             Country country = countryList.get(i);
-            List<String> borderList = country.getBorderList();
+            Set<String> borderList = country.getBorderSet();
 
-            for (int j = 0; j < borderList.size(); j++) {
+            for (String border : borderList) {
 
-                int borderIndexInCountryList = map.get(borderList.get(j));
+                int borderIndexInCountryList = map.get(border);
                 adjacencyMatrix[i][borderIndexInCountryList] = 1;
                 adjacencyMatrix[borderIndexInCountryList][i] = 1;
-
             }
 
         }
@@ -111,26 +109,26 @@ public class CountryGraph {
 
         resultList.add(countryList.get(toIndex).getCca3());
         Country currentCountry = countryList.get(stack.pop());
+        resultList.add(currentCountry.getCca3());
 
         while (!stack.isEmpty()) {
 
-            List<String> currentCountryBorderList = currentCountry.getBorderList();
+            Set<String> currentCountryBorderList = currentCountry.getBorderSet();
 
-            for (String border : currentCountryBorderList) {
+            String topCountryCca3InStack = countryList.get(stack.peek()).getCca3();
 
-                String topCountryCca3InStack = countryList.get(stack.peek()).getCca3();
-                if (border.equals(topCountryCca3InStack)) {
+            if (currentCountryBorderList.contains(topCountryCca3InStack)) {
 
-                    resultList.add(border);
-                    currentCountry = countryList.get(stack.pop());
-
-                }
+                resultList.add(topCountryCca3InStack);
+                currentCountry = countryList.get(stack.pop());
+                continue;
             }
 
-            stack.pop();
+            if (stack.size() > 0) {
+                stack.pop();
+            }
 
         }
-        resultList.add(from);
         return resultList;
     }
 
