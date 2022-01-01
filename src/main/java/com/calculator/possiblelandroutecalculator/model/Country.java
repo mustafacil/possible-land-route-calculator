@@ -1,6 +1,5 @@
 package com.calculator.possiblelandroutecalculator.model;
 
-import java.util.List;
 import java.util.Set;
 
 public class Country {
@@ -8,14 +7,9 @@ public class Country {
     private String cca3;
     private Set<String> borderSet;
     private boolean wasVisited;
+    private String region;
 
     public Country() {
-    }
-
-    public Country(String cca3, Set<String> borderSet, boolean wasVisited) {
-        this.cca3 = cca3;
-        this.borderSet = borderSet;
-        this.wasVisited = wasVisited;
     }
 
     public String getCca3() {
@@ -40,5 +34,25 @@ public class Country {
 
     public void setWasVisited(boolean wasVisited) {
         this.wasVisited = wasVisited;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public boolean isInSameRegion(Country otherCountry){
+
+        boolean isInSameRegion = false;
+
+        if(this.region.equals(otherCountry.getRegion())){
+            isInSameRegion = true;
+        }
+
+        return isInSameRegion;
+
     }
 }
