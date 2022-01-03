@@ -2,11 +2,18 @@ package com.calculator.possiblelandroutecalculator.model;
 
 import java.util.Set;
 
+/**
+ * This class represents a country.
+ */
 public class Country {
 
+    //Country name
     private String cca3;
-    private Set<String> borderSet;
+    //Country border set
+    private Set<String> borders;
+    //Was visited when finding a route?
     private boolean wasVisited;
+    //The region to which the country belongs.
     private String region;
 
     public Country() {
@@ -20,12 +27,12 @@ public class Country {
         this.cca3 = cca3;
     }
 
-    public Set<String> getBorderSet() {
-        return borderSet;
+    public Set<String> getBorders() {
+        return borders;
     }
 
-    public void setBorderSet(Set<String> borderSet) {
-        this.borderSet = borderSet;
+    public void setBorders(Set<String> borders) {
+        this.borders = borders;
     }
 
     public boolean isWasVisited() {
@@ -44,7 +51,12 @@ public class Country {
         this.region = region;
     }
 
-    public boolean isInSameRegion(Country otherCountry){
+    /**
+     * Function to check that the otherCountry is in the same region or not.
+     * @param otherCountry is the country to be checked.
+     * @return if two countries are in the same region.
+     */
+    public boolean isInSameRegionWith(Country otherCountry){
 
         boolean isInSameRegion = false;
 
@@ -54,5 +66,15 @@ public class Country {
 
         return isInSameRegion;
 
+    }
+
+    @Override
+    public String toString() {
+        return "Country{" +
+                "cca3='" + cca3 + '\'' +
+                ", borders=" + borders +
+                ", wasVisited=" + wasVisited +
+                ", region='" + region + '\'' +
+                '}';
     }
 }
