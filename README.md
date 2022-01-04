@@ -12,6 +12,6 @@
 
 ##### **Usage**
 You can query whether there is a route between two countries. 
-For this purpose you need to send `GETgit` request to `localhost:8080/routing/{origin}/{destination}`
+For this purpose you need to send `GET` request to `localhost:8080/routing/{origin}/{destination}`
 
 You can find the graphs under test in `test/resources/static` folder.
