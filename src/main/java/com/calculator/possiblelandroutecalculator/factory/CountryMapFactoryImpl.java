@@ -1,8 +1,6 @@
 package com.calculator.possiblelandroutecalculator.factory;
 
-import com.calculator.possiblelandroutecalculator.client.CountryClient;
 import com.calculator.possiblelandroutecalculator.model.Country;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 

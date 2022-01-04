@@ -4,6 +4,7 @@ import com.calculator.possiblelandroutecalculator.client.CountryClient;
 import com.calculator.possiblelandroutecalculator.factory.CountryMapFactory;
 import com.calculator.possiblelandroutecalculator.model.Country;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -29,35 +30,26 @@ class CountryServiceImplTest {
         countryService = new CountryServiceImpl(countryMapFactory, countryClient);
     }
 
+    @DisplayName("If Origin and Destination Countries Are In The Same Region Return True")
     @Test
     void shouldReturnTrue_WhenGivenOriginAndDestinationAreInSameRegion(){
-        //Given
 
-        //When
-
-        //Then
         assertTrue(countryService.countriesAreInSameRegion("GER", "AUS"));
 
     }
 
+    @DisplayName("If Origin and Destination Countries Are Not In The Same Region Return False")
     @Test
     void shouldReturnFalse_WhenGivenOriginAndDestinationAreNotInSameRegion(){
-        //Given
 
-        //When
-
-        //Then
         assertFalse(countryService.countriesAreInSameRegion("GER", "LAO"));
 
     }
 
+    @DisplayName("If Origin or Destination Country Are Not Valid Return False")
     @Test
     void shouldReturnFalse_WhenGivenOriginOrDestinationAreNotInCountryList(){
-        //Given
 
-        //When
-
-        //Then
         assertAll(
                 () -> assertFalse(countryService.countriesAreInSameRegion("GER", "XXX")),
                 () -> assertFalse(countryService.countriesAreInSameRegion("XXX", "XXX"))

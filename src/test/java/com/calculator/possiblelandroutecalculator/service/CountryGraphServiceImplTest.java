@@ -2,13 +2,11 @@ package com.calculator.possiblelandroutecalculator.service;
 
 import com.calculator.possiblelandroutecalculator.client.CountryClient;
 import com.calculator.possiblelandroutecalculator.factory.CountryGraphFactory;
-import com.calculator.possiblelandroutecalculator.factory.CountryGraphFactoryImpl;
 import com.calculator.possiblelandroutecalculator.factory.CountryMapFactory;
 import com.calculator.possiblelandroutecalculator.model.Country;
 import com.calculator.possiblelandroutecalculator.model.CountryGraph;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import java.util.*;

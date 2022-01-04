@@ -3,7 +3,6 @@ package com.calculator.possiblelandroutecalculator.service;
 import com.calculator.possiblelandroutecalculator.client.CountryClient;
 import com.calculator.possiblelandroutecalculator.factory.CountryMapFactory;
 import com.calculator.possiblelandroutecalculator.model.Country;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -16,6 +16,12 @@ import java.util.List;
 @Service
 public class CountryClientImpl implements CountryClient{
 
+    private final RestTemplate restTemplate;
+
+    public CountryClientImpl(RestTemplateBuilder restTemplateBuilder) {
+        this.restTemplate = restTemplateBuilder.build();
+    }
+
     /**
      * Function to retrieve all countries as {@link Country} list from github
      * @return list of all countries
@@ -23,8 +29,6 @@ public class CountryClientImpl implements CountryClient{
     @Cacheable("countryList")
     @Override
     public List<Country> getCountryList() {
-
-        RestTemplate restTemplate = new RestTemplateBuilder().build();
 
         String url = "https://raw.githubusercontent.com/mledoze/countries/master/countries.json";
 

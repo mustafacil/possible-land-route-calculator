@@ -7,13 +7,13 @@ import java.util.*;
  */
 public class CountryGraph {
 
-    //The list countries in the same region
+    //The country list in the same region
     private List<Country> countryList;
     //The Adjacency Matrix between countries
     private int[][] adjacencyMatrix;
     //Breadth First Search Queue
     private Queue<Integer> breadthFirstSearchQueue;
-    //Stores all visited country from origin to destination.
+    //Stores all visited countries from origin to destination.
     private Stack<Integer> visitedCountryStack;
 
     /**
